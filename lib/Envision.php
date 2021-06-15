@@ -123,6 +123,22 @@ class Envision
 
     /**
      * @param string $name
+     * @param string $default
+     * @return string
+     */
+    public static function getString(string $name, string $default = ''): string
+    {
+        $value = self::getRaw($name);
+
+        if ($value === false) {
+            return self::handleEmpty($name, $default);
+        }
+
+        return (string)$value;
+    }
+
+    /**
+     * @param string $name
      * @param string $delimiter
      * @param array $default
      * @return array
