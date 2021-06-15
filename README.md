@@ -74,6 +74,13 @@ Envision::getInt('FOO');
 Envision::getFloat('FOO', 3.141592);
 ```
 
+Get string:
+
+```PHP
+Envision::getString('FOO');
+Envision::getString('FOO', 'default');
+```
+
 Get an array specified like
 
 ```
