@@ -143,7 +143,7 @@ class Envision
      * @param array $default
      * @return array
      */
-    public function getArray(string $name, string $delimiter = ',', array $default = []): array
+    public static function getArray(string $name, string $delimiter = ',', array $default = []): array
     {
         $env = self::getRaw($name);
 
@@ -151,13 +151,7 @@ class Envision
             return self::handleEmpty($name, $default);
         }
 
-        $value = explode($delimiter, trim($env, $delimiter));
-
-        if ($value === false) {
-            return self::handleInvalid($name, $value, $default);
-        }
-
-        return $value;
+        return explode($delimiter, trim($env, $delimiter));
     }
 
     /**

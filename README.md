@@ -23,36 +23,6 @@ or
 ```
 
 ## Usage
-
-### Configuration
-
-Envision has a set of options to control it's behaviour. Default behaviour is not to look for env variables in `$_ENV`
-and `$_SERVER` arrays. It's okay if you are using symfony/dotenv component to load .env files. 
-But you change this using
-
-```PHP
-Envision::$options = Envision::USE_ENV_ARRAY | Envision::USE_SERVER_ARRAY;
-```
-
-Also, you can configure Envision to throw `InvalidArgumentException` if env variable cannot be found:
-
-```PHP
-Envision::$options = Envision::ON_EMPTY_THROW;
-```
-
-or if variable has invalid format:
-
-```PHP
-Envision::$options = Envision::ON_INVALID_THROW;
-
-```
-
-by default Envision will return default values in both cases, which equals to
-
-```PHP
-Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT | Envision::ON_INVALID_RETURN_DEFAULT;
-```
-
 ### Examples
 
 Get boolean variable (default is false):
@@ -96,6 +66,35 @@ by passing delimiter (default is `,`)
 Envision::getArray('FOO');
 Envision::getArray('FOO1', ',');
 Envision::getArray('FOO3', ',', ['v2']);
+```
+
+### Configuration
+
+Envision has a set of options to control it's behaviour. Default behaviour is not to look for env variables in `$_ENV`
+and `$_SERVER` arrays. It's okay if you are using symfony/dotenv component to load .env files.
+But you change this using
+
+```PHP
+Envision::$options = Envision::USE_ENV_ARRAY | Envision::USE_SERVER_ARRAY;
+```
+
+Also, you can configure Envision to throw `InvalidArgumentException` if env variable cannot be found:
+
+```PHP
+Envision::$options = Envision::ON_EMPTY_THROW;
+```
+
+or if variable has invalid format:
+
+```PHP
+Envision::$options = Envision::ON_INVALID_THROW;
+
+```
+
+by default Envision will return default values in both cases, which equals to
+
+```PHP
+Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT | Envision::ON_INVALID_RETURN_DEFAULT;
 ```
 
 ## Testing

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class EnvisionTest extends TestCase
 {
-    public function testGetRawFromEnvWithDefaultOptions(): void
+    public function testGetRawFromEnvWith(): void
     {
         Envision::$options |= Envision::USE_ENV_ARRAY;
 
@@ -18,6 +18,17 @@ class EnvisionTest extends TestCase
         $_ENV['FOO'] = $value;
 
         self::assertEquals($value, Envision::getRaw('FOO'));
+    }
+
+    public function testGetRawFromServer(): void
+    {
+        Envision::$options |= Envision::USE_SERVER_ARRAY;
+
+        $value = 'bar';
+
+        $_SERVER['SSS'] = $value;
+
+        self::assertEquals($value, Envision::getRaw('SSS'));
     }
 
     public function testGetRawFromEnvWithoutEnvArrayUse(): void
@@ -68,6 +79,13 @@ class EnvisionTest extends TestCase
         self::assertEquals(10, Envision::getInt('FOO'));
     }
 
+    public function testGetIntWithDefaultValue(): void
+    {
+        Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT;
+
+        self::assertEquals(3, Envision::getInt('BOO', 3));
+    }
+
     public function testGetIntWithInvalidValue(): void
     {
         putenv('FOO=asd');
@@ -102,5 +120,50 @@ class EnvisionTest extends TestCase
         putenv('FOO=10');
 
         self::assertEquals(10.0, Envision::getFloat('FOO'));
+    }
+
+    public function testGetFloatWithInvalidValue(): void
+    {
+        putenv('FOO=sama');
+
+        self::assertEquals(2.0, Envision::getFloat('FOO', 2.0));
+    }
+
+    public function testGetFloatWithDefaultValue(): void
+    {
+        Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT;
+
+        self::assertEquals(3.0, Envision::getFloat('BOO2', 3.0));
+    }
+
+    public function testGetString(): void
+    {
+        putenv('SOO=bar');
+
+        self::assertEquals('bar', Envision::getString('SOO'));
+    }
+
+    public function testGetStringWithDefaultValue(): void
+    {
+        self::assertEquals('bar', Envision::getString('SOOEMPTY', 'bar'));
+    }
+
+    public function testGetArray(): void
+    {
+        putenv('AOO=a,b,c,');
+
+        self::assertEquals(['a', 'b', 'c'], Envision::getArray('AOO'));
+    }
+
+    public function testGetArrayWithSlashDelim(): void
+    {
+        putenv('AOO2=/a/b/c');
+
+        self::assertEquals(['a', 'b', 'c'], Envision::getArray('AOO2', '/'));
+    }
+
+    public function testGetArrayWithDefaultValue(): void
+    {
+        self::assertEquals(['a'], Envision::getArray('AOOEMPTY', '/', ['a']));
     }
 }

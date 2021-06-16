@@ -33,7 +33,7 @@
     },
     "scripts": {
         "prepare-push": ["@test", "@phpstan", "@psalm", "@phpcs"],
-        "test": "phpunit -c tests/phpunit.xml",
+        "test": "phpunit -c tests/phpunit.xml --coverage-clover coverage.xml",
         "phpstan": "phpstan analyse -l 5 lib",
         "psalm": "psalm",
         "phpcs": "phpcs -n --standard=PSR2 lib"
