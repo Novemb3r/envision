@@ -1,6 +1,6 @@
 # Envision
 
-[![packagist-dt-badge]][packagist] [![release-version-badge]][packagist] ![php-version-badge] [![code-climate-maintainability-badge]][code-climate] ![license]
+[![packagist-dt-badge]][packagist] ![php-version-badge] [![travis-build-status]][travis-link] [![codecov]][codecov-link] ![license]
 
 Simplest library to bring types for your env variables!
 
@@ -115,14 +115,15 @@ before making changes
 
 [packagist-dt-badge]: https://img.shields.io/packagist/dt/novemb3r/envision.svg?style=flat-square
 
-[release-version-badge]: https://img.shields.io/packagist/v/novemb3r/envision.svg?style=flat-square&label=release
-
 [packagist]: https://packagist.org/packages/novemb3r/envision
 
 [php-version-badge]: https://img.shields.io/packagist/php-v/suin/json.svg?style=flat-square
 
-[code-climate]: https://codeclimate.com/github/Novemb3r/envision
-
-[code-climate-maintainability-badge]: https://img.shields.io/codeclimate/maintainability/Novemb3r/envision.svg?style=flat-square
-
 [license]: https://img.shields.io/badge/License-MIT-green.svg?style=flat-square
+
+[travis-build-status]: https://img.shields.io/travis/Novemb3r/envision?style=flat-square
+[travis-link]: https://travis-ci.com/Novemb3r/envision
+
+[codecov]: https://img.shields.io/codecov/c/github/Novemb3r/envision?style=flat-square&token=EZNYXY93EZ
+
+[codecov-link]: https://codecov.io/gh/Novemb3r/envision
