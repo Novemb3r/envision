@@ -6,7 +6,7 @@ namespace Envision;
 
 use InvalidArgumentException;
 
-class Envision
+final class Envision
 {
 
     /**

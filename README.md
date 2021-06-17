@@ -72,7 +72,7 @@ Envision::getArray('FOO3', ',', ['v2']);
 
 Envision has a set of options to control it's behaviour. Default behaviour is not to look for env variables in `$_ENV`
 and `$_SERVER` arrays. It's okay if you are using symfony/dotenv component to load .env files.
-But you change this using
+But you can change this using
 
 ```PHP
 Envision::$options = Envision::USE_ENV_ARRAY | Envision::USE_SERVER_ARRAY;
@@ -109,7 +109,7 @@ always run
 ```shell
 $ composer prepare-push
 ```
-before making changes
+before making any changes
 
 <!-- Badges -->
 

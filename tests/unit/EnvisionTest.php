@@ -7,7 +7,7 @@ namespace Envision;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
-class EnvisionTest extends TestCase
+final class EnvisionTest extends TestCase
 {
     public function testGetRawFromEnvWith(): void
     {
