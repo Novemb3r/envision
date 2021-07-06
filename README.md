@@ -91,10 +91,10 @@ Envision::$options = Envision::ON_INVALID_THROW;
 
 ```
 
-by default Envision will return default values in both cases, which equals to
+by default Envision will return default value on empty and throw `InvalidArgumentException` on invalid value, which equals to
 
 ```PHP
-Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT | Envision::ON_INVALID_RETURN_DEFAULT;
+Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT | Envision::ON_INVALID_THROW;
 ```
 
 ## Testing

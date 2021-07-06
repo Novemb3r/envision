@@ -42,7 +42,7 @@ final class Envision
     /**
      * @var int
      */
-    public static $options = self::ON_EMPTY_RETURN_DEFAULT | self::ON_INVALID_RETURN_DEFAULT;
+    public static $options = self::ON_EMPTY_RETURN_DEFAULT | self::ON_INVALID_THROW;
 
     /**
      * @param string $name
