@@ -121,7 +121,7 @@ before making any changes
 
 [license]: https://img.shields.io/badge/License-MIT-green.svg?style=flat-square
 
-[travis-build-status]: https://img.shields.io/travis/Novemb3r/envision?style=flat-square
+[travis-build-status]: https://img.shields.io/travis/com/Novemb3r/envision?style=flat-square
 [travis-link]: https://travis-ci.com/Novemb3r/envision
 
 [codecov]: https://img.shields.io/codecov/c/github/Novemb3r/envision?style=flat-square&token=EZNYXY93EZ
