@@ -1,8 +1,12 @@
 {
     "name": "novemb3r/envision",
-    "description": "A lightweight library to bring typing to env variables",
-    "keywords": ["env", "environment", "typing"],
     "type": "library",
+    "description": "A lightweight library to bring typing to env variables",
+    "keywords": [
+        "env",
+        "environment",
+        "typing"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -14,11 +18,11 @@
         "php": ">=7.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
+        "orklah/psalm-strict-visibility": "^2.0",
         "phpstan/phpstan": "^0.12.88",
-        "vimeo/psalm": "^4.7",
+        "phpunit/phpunit": "^8.5",
         "squizlabs/php_codesniffer": "^3.6",
-        "orklah/psalm-strict-visibility": "^2.0"
+        "vimeo/psalm": "^4.7"
     },
     "autoload": {
         "psr-4": {
@@ -31,10 +35,15 @@
         }
     },
     "scripts": {
-        "prepare-push": ["@test", "@phpstan", "@psalm", "@phpcs"],
-        "test": "phpunit -c tests/phpunit.xml --coverage-clover coverage.xml",
+        "phpcs": "phpcs -n --standard=PSR2 lib",
         "phpstan": "phpstan analyse -l 5 lib",
+        "prepare-push": [
+            "@test",
+            "@phpstan",
+            "@psalm",
+            "@phpcs"
+        ],
         "psalm": "psalm",
-        "phpcs": "phpcs -n --standard=PSR2 lib"
+        "test": "phpunit -c tests/phpunit.xml --coverage-clover coverage.xml"
     }
 }

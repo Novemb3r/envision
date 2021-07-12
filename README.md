@@ -23,7 +23,10 @@ or
 ```
 
 ## Usage
+
 ### Examples
+
+#### Booleans
 
 Get boolean variable (default is false):
 
@@ -37,6 +40,26 @@ or with `true` as default:
 Envision::getBool('FOO', true);
 ```
 
+Boolean env variables **should** be declared like
+
+```shell
+B1=true
+B2=True
+B3=TrUe
+B4=TRUE # because Envision converts boolean variables to lovercase
+```
+
+and **shouldn't** be declared like
+
+```shell
+BW1=1
+BW2=yes
+BW3=positive
+BW4=ok
+```
+
+#### Numeric types
+
 Get an integer or float:
 
 ```PHP
@@ -44,12 +67,16 @@ Envision::getInt('FOO');
 Envision::getFloat('FOO', 3.141592);
 ```
 
+#### Strings
+
 Get string:
 
 ```PHP
 Envision::getString('FOO');
 Envision::getString('FOO', 'default');
 ```
+
+#### Arrays
 
 Get an array specified like
 
@@ -71,8 +98,8 @@ Envision::getArray('FOO3', ',', ['v2']);
 ### Configuration
 
 Envision has a set of options to control it's behaviour. Default behaviour is not to look for env variables in `$_ENV`
-and `$_SERVER` arrays. It's okay if you are using symfony/dotenv component to load .env files.
-But you can change this using
+and `$_SERVER` arrays. It's okay if you are using symfony/dotenv component to load .env files. But you can change this
+using
 
 ```PHP
 Envision::$options = Envision::USE_ENV_ARRAY | Envision::USE_SERVER_ARRAY;
@@ -88,10 +115,10 @@ or if variable has invalid format:
 
 ```PHP
 Envision::$options = Envision::ON_INVALID_THROW;
-
 ```
 
-by default Envision will return default value on empty and throw `InvalidArgumentException` on invalid value, which equals to
+by default Envision will return default value on empty and throw `InvalidArgumentException` on invalid value, which
+equals to
 
 ```PHP
 Envision::$options = Envision::ON_EMPTY_RETURN_DEFAULT | Envision::ON_INVALID_THROW;
@@ -105,10 +132,12 @@ To execute test suites run
 $ composer test
 ```
 
-always run 
+always keep test coverage at 100% and always run
+
 ```shell
 $ composer prepare-push
 ```
+
 before making any changes
 
 <!-- Badges -->
@@ -122,6 +151,7 @@ before making any changes
 [license]: https://img.shields.io/badge/License-MIT-green.svg?style=flat-square
 
 [travis-build-status]: https://img.shields.io/travis/com/Novemb3r/envision?style=flat-square
+
 [travis-link]: https://travis-ci.com/Novemb3r/envision
 
 [codecov]: https://img.shields.io/codecov/c/github/Novemb3r/envision?style=flat-square&token=EZNYXY93EZ
