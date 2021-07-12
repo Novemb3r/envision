@@ -74,6 +74,10 @@ final class Envision
             return self::handleEmpty($name, $default);
         }
 
+        if (!in_array(strtolower($env), ['true', 'false'])) {
+            return self::handleInvalid($name, $env, $default);
+        }
+
         return (bool)filter_var($env, FILTER_VALIDATE_BOOLEAN);
     }
 

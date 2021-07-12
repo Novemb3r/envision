@@ -63,6 +63,13 @@ final class EnvisionTest extends TestCase
         self::assertTrue(Envision::getBool('WOW', true));
     }
 
+    public function testGetBoolWithInvalidValue(): void
+    {
+        putenv('BARBOOL=inv');
+
+        self::assertTrue(Envision::getBool('BARBOOL', true));
+    }
+
     public function testGetBoolWithDefaultButNullReturnOption(): void
     {
         $this->expectException(InvalidArgumentException::class);
