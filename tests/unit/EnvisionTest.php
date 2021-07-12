@@ -169,6 +169,13 @@ final class EnvisionTest extends TestCase
         self::assertEquals(['a', 'b', 'c'], Envision::getArray('AOO2', '/'));
     }
 
+    public function testGetArrayWithEmptyDelim(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        Envision::getArray('AOO2', '');
+    }
+
     public function testGetArrayWithDefaultValue(): void
     {
         self::assertEquals(['a'], Envision::getArray('AOOEMPTY', '/', ['a']));

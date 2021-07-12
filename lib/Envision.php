@@ -149,6 +149,10 @@ final class Envision
      */
     public static function getArray(string $name, string $delimiter = ',', array $default = []): array
     {
+        if ($delimiter === '') {
+            throw new InvalidArgumentException('Param $delimiter cannot be empty');
+        }
+
         $env = self::getRaw($name);
 
         if ($env === false) {
